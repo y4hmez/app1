@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" RequestedTheme="Dark">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.DataContext>
+            <local:ViewModel/>
+        </Grid.DataContext>
+
+
+
+        <StackPanel>
+            <TextBlock x:Name="HeadingLablel" TextWrapping="Wrap" Text="Heading" />
+            <TextBlock x:Name="Heading" TextWrapping="Wrap" Text="{x:Bind Vm.Heading, Mode=OneWay}" />
+            <TextBlock x:Name="PresureLabel" TextWrapping="Wrap" Text="Pressure" />
+            <TextBlock x:Name="Presure" TextWrapping="Wrap" Text="{x:Bind Vm.Pressure, Mode=OneWay}" />
+        </StackPanel>
+
+
+    </Grid>
+</Page>
