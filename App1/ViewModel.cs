@@ -33,6 +33,14 @@ namespace App1
 
         public ViewModel() { } //public default for XAML
 
+        private int angleToNorth;
+
+        public int AngleToNorth
+        {
+            get { return angleToNorth; }
+            set { angleToNorth = value; }
+        }
+
         private double heading;
         public double Heading
         {
@@ -82,7 +90,12 @@ namespace App1
         {
             if (args.Reading.HeadingTrueNorth.HasValue)
             {
-                Heading = args.Reading.HeadingTrueNorth.Value;
+                //Heading = args.Reading.HeadingTrueNorth.Value;
+
+                Heading = (360 - args.Reading.HeadingTrueNorth.Value + 180) % 360;
+
+
+                //deg = (deg + 360) % 360;
             }
         }
     }

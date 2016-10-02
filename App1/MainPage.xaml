@@ -16,8 +16,8 @@
                             Unit="Degree"
                             ScaleTickBrush="Transparent"
                             TickBrush="Transparent"
-                            Minimum="0"
-                            Maximum="360"
+                            Minimum="0"                        
+                            Maximum="360"                            
                             ScaleWidth="30" CanDrag="True"><!-- width of the surrounding dial background -->
             <controls:Gauge.NeedleBrush>
                 <LinearGradientBrush EndPoint="1,0">
