@@ -5,13 +5,31 @@
     xmlns:local="using:App1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:WinRTXamlToolkit.Controls"
     mc:Ignorable="d" RequestedTheme="Dark">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.DataContext>
             <local:ViewModel/>
         </Grid.DataContext>
-
+        <controls:Gauge x:Name="myGrapg" Value="{x:Bind Vm.Heading, Mode=OneWay}"
+                            Unit="Degree"
+                            ScaleTickBrush="Transparent"
+                            TickBrush="Transparent"
+                            Minimum="0"
+                            Maximum="360"
+                            ScaleWidth="30" CanDrag="True"><!-- width of the surrounding dial background -->
+            <controls:Gauge.NeedleBrush>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="Black" />
+                    <GradientStop Color="Blue" Offset=".5" />
+                    <GradientStop Color="Black" Offset="3" />
+                </LinearGradientBrush>
+            </controls:Gauge.NeedleBrush>
+            <controls:Gauge.TrailBrush>
+                <SolidColorBrush Color="Green" Opacity="25" />
+            </controls:Gauge.TrailBrush>
+        </controls:Gauge>
 
 
         <StackPanel>
@@ -19,7 +37,11 @@
             <TextBlock x:Name="Heading" TextWrapping="Wrap" Text="{x:Bind Vm.Heading, Mode=OneWay}" />
             <TextBlock x:Name="PresureLabel" TextWrapping="Wrap" Text="Pressure" />
             <TextBlock x:Name="Presure" TextWrapping="Wrap" Text="{x:Bind Vm.Pressure, Mode=OneWay}" />
+
+            
+            
         </StackPanel>
+
 
 
     </Grid>
